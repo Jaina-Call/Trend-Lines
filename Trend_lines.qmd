@@ -1,0 +1,26 @@
+---
+title: "Trend Lines Source"
+format: html
+---
+# Library and Dataframe Import
+```{python}
+import pandas as pd
+
+import numpy as np
+from lets_plot import *
+import sklearn
+from sklearn.metrics import *
+import csv
+LetsPlot.setup_html(isolated_frame=True)
+dw = pd.read_csv("https://raw.githubusercontent.com/Jaina-Call/Trend-Lines/main/Lack_of_Social_Connection_20250628.csv")
+print(dw.head())
+```
+
+# Counting the useful data
+```{python}
+applicable_data_1 = dw.loc[dw['Indicator'] == "Adults who sometimes, rarely, or never get the social and emotional support they need"]
+applicable_data_1.count()
+applicable_data_2 = dw.loc[dw['Indicator'] == 'Adults who usually or always feel lonely']
+applicable_data_2.count()
+
+```
